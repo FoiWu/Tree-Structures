@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AVL_Test</title>
+<link rel="stylesheet" type="text/css" href="../../style/layout.css" media="screen, projection, tv " />
+<link rel="stylesheet" type="text/css" href="../../style/html.css" media="screen, projection, tv" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script type="text/javascript" src="http://malsup.github.com/jquery.blockUI.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="../../instruction/generateData.js"></script>
+<script src="../../instruction/generateTraversal.js"></script>
+<script src="../../instruction/checkNodePosition.js"></script>
+<script src="../../instruction/compareAnswer.js"></script>
+<script src="../../instruction/buildTree.js"></script>
+<script src="../../instruction/Animation/AnimationBstAvlBuildTree.js"></script>
+<script src="../../instruction/Animation/AnimationBuildLine.js"></script>
+<script src="../../instruction/balanceTraversal.js"></script>
+<script src="../../instruction/balanceInsert.js"></script>
+<script src="../../instruction/Animation/AnimationCircle.js"></script>
+<script src="../../instruction/Animation/AnimationLine.js"></script>
+
+<script>
+window.onload =function() { genNumbers.getAlphabetNodes(2); allNode.buildTree(); }
+</script>
+
+</head>
+
+<body>
+<!-- #left-column: left side -->
+<div id="left-column">
+    <div id="menu11">
+        <ul>
+        	<li><a href="#" style="color:#8F6238; font-size:17px;"><b>Animation Learning</b></a></li>
+        	<li><a href="../Simulation/AVL_Simulation_Property.html">Property</a></li>
+			<li><a href="../Simulation/AVL_Simulation_Insert.html">Insert</a></li>
+			<li><a href="#" style="color:#8F6238; font-size:17px;"><b>TEST</b></a></li>
+            <li><a id="current" href="AVL_Test_BuildATree.html">Build a Tree</a></li>
+			<li><a href="AVL_Test_Traversal.html">Traversal</a><li>
+        </ul>
+    </div>
+</div>
+
+<!-- #wrapper: centers the content and sets the width -->
+<div id="wrapper">
+
+    <!-- #content: applies the white, dropshadow background -->
+    <div id="content" style="width:1050px">
+        
+         <!-- #header: holds site title and subtitle -->
+          <div id="header" style="padding-left:25%;">
+              <h1><span class="big darkBrown">2</span>-3 <span class="big darkBrown">T</span>REE</h1>
+              <h2><span class="highlight">Test_Traversal</span></h2>
+          </div>
+ 
+    <!-- #menu: topbar menu of the site.  Use the helper classes .two, .three, .four and .five to set
+                the widths for 2, 3, 4 and 5 item menus. -->
+        <ul id="menu" class="four">
+          <li><a href="../Simulation/BST_Simulation_show_all.html"><span class="big">B</span>inary&nbsp;Search&nbsp;Tree</a></li>
+          <li><a href="../Simulation/AVL_Simulation_Property.html" class="here"><span class="big">A</span>VL&nbsp;Tree</a></li>
+          <li><a href="../Simulation/RB_Simulation_Property.html"><span class="big">R</span>ed-Black&nbsp;Tree</a></li>
+          <li><a href="../Simulation/23_Simulation_Property.html"><span class="big">2</span>-3&nbsp;Tree</a></li>
+        </ul>
+
+        <!-- #page: holds all page content, as well as footer -->
+    	<div id="page">
+            <h3 style="font-family:Microsoft JhengHei;">請根據以下所給的一筆(綠色)資料建立Tree,把得到的(橘色)Node移入右側紫藍色圓圈中,若node放好後，紫藍色圓圈會變成藍色空心圓。<br>您也可觀看紅色字體以確保node是否有放好</h3>
+            <h3 style="font-family:Microsoft JhengHei;">步驟:<br>(I)按下"Start"按鈕後,得到第一個Node,移動到適當的位置<br>(II)按下"Next Node"按鈕後,得到下一個Node,移動到適當的位置<br>(III)按下"Fill in Balance Factor"按鈕,將正確的Balance Factor填入空格中<br>(IV)最後,按下"Submit"按鈕,即可偵測是否答對</h3>
+    
+            <h3 style="color:#3C6; font-family:Microsoft JhengHei;">Data: <span id="rawData" style="color:#3C6"></span></h3>
+    
+            <h4 id="positionTip" style="color:red; font-family:Microsoft JhengHei;">查看此處可確認Node是否有放好</h4>
+    
+            <button id="nextNode" onclick="buildTree.generateDragNode()">Start</button>
+           
+            <div id="treeGraph" style="width:1000;"></div>
+            
+            <button id="bfTest" onclick="compare.fillInBF()">Fill in Balance Factor</button>
+            
+            <button id="Submit" onclick="compare.compareAnswer(2)">Submit</button>
+            
+            <h3 style="color:#068; font-family:Microsoft JhengHei;" id="result">Result:<blockquote><span id="result" style="color:#06F"></span></blockquote></h3><br>
+             
+            <button id="ans" onClick="compare.displayAnswer(2)">Display correct answer</button>
+        </div>
+        
+        <div id="nullSVG" title="_" style="position:absolute; padding:0 0 0 0"></div>  
+        <div id="answerSVG">
+        	<button id="ShowAll" onclick="showStep.buildTree()">Show AVL Tree</button>
+            <h3 style="color:#C30; font-family:Microsoft JhengHei; background:#FFC" id="unbalance">不平衡的情況為：none</h3>
+			<svg width="660" height="330" id="tree" style="background:#FFC" viewbox="30,10,660,330"></svg>
+		</div>  
+	</div>
+</div>
+
+
+</body>
+</html>

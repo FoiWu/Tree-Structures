@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2-3_Simulation</title>
+<link rel="stylesheet" type="text/css" href="../../style/layout.css" media="screen, projection, tv " />
+<link rel="stylesheet" type="text/css" href="../../style/html.css" media="screen, projection, tv" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="http://malsup.github.com/jquery.blockUI.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="../../instruction/Animation/AnimationOverflow.js"></script>
+
+<script>
+window.onload =function() { property23.oneKeyTwoSubtree(); property23.twoKeyThreeSubtree(); }
+$(document).ready(function() { 
+	//Display calculation of balance factor.
+	$('#bfCalculate').click(function() { 
+		 $(function() {
+			$( "#bfSVG" ).dialog()
+				.prev(".ui-dialog-titlebar").css("background","#87CEFA").css("margin-right","60px")
+				.find('.ui-button').css("background","#87CEFA");
+		});
+	});    
+});
+</script>
+</head>
+
+<body>
+
+<!-- #left-column: left side -->
+<div id="left-column">
+    <div id="menu11">
+        <ul>
+        	<li><a href="#" style="color:#8F6238; font-size:17px;"><b>Animation Learning</b></a></li>
+        	<li><a id="current" href="23_Simulation_Property.html">Property</a></li>
+			<li><a href="23_Simulation_Insert.html">Insert</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<!-- #wrapper: centers the content and sets the width -->
+<div id="wrapper">
+
+  <!-- #content: applies the white, dropshadow background -->
+  <div id="content">
+
+    <!-- #header: holds site title and subtitle -->
+    <div id="header" style="padding-left:25%;">
+        <h1><span class="big darkBrown">2</span>-3 <span class="big darkBrown">T</span>REE</h1>
+        <h2><span class="highlight">Test_Traversal</span></h2>
+    </div>
+ 
+    <!-- #menu: topbar menu of the site.  Use the helper classes .two, .three, .four and .five to set
+                the widths for 2, 3, 4 and 5 item menus. -->
+    <ul id="menu" class="four">
+      <li><a href="BST_Simulation_show_all.html"><span class="big">B</span>inary&nbsp;Search&nbsp;Tree</a></li>
+      <li><a href="AVL_Simulation_Property.html"><span class="big">A</span>VL&nbsp;Tree</a></li>
+      <li><a href="RB_Simulation_Property.html"><span class="big">R</span>ed-Black&nbsp;Tree</a></li>
+      <li><a href="23_Simulation_Property.html" class="here"><span class="big">2</span>-3&nbsp;Tree</a></li>
+    </ul>
+    
+    <!-- #page: holds all page content, as well as footer -->
+    <div id="page">
+    	<h3 style="font-family:Microsoft JhengHei;">2-3 Tree的特性:<br><br>
+           <ul class="contentUi">
+               <li>每個節點有1~2個Key,2~3個子樹</p>
+               <li>全部leaf節點的高度相同</p>
+               <li>新增的值由上往下依序比較大小放入適當的leaf節點,若節點內的Key數量>=3,則發生overflow</li>
+           </ul>
+        </h3>
+    
+            <h3 >
+            <pre style="font-size:16px;">
+(1)若節點中有1個Key(Left Key),此節點的子樹一定有2個子樹(Left subtree、Middle subtree)
+	 <div id="oneKey">
+     	<canvas id="twoSubtree" width="500" height="200">Your browser does not support the HTML5 canvas tag.</canvas>
+     </div> 
+          
+(2)若節點中有2個值(Left Key、Right key),此節點的子樹一定有3個子樹(Left subtree、Middle subtree、Right subtree)
+	 <div id="twoKey">
+        <canvas id="threeSubtree" width="500" height="200">Your browser does not support the HTML5 canvas tag.</canvas>
+     </div> 
+      
+✯若節點內key的數量2,則發生overflow
+ 
+	--> 解決方法: 將此node一分為二,分別放入Left Key和Right Key,
+                     再將Middle Key往上放到Parent節點
+                     (若沒有Parent節點,則建立一個新節點)
+	  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="440" height="260" id="svgOverflow" style="background:#F5FFFA" >
+          <rect id="lRect1" x="180" y="150" fill="none" stroke="green" stroke-width="4" width="50" height="40"/>	
+		  <rect id="rRect1" x="230" y="150" fill="none" stroke="green" stroke-width="4" width="50" height="40"/>	
+		  <g id="lKey" transform="translate(205,170)"> 
+			  <circle id="key1" fill="#FFAA33" cx="0" cy="0" r="14"/>
+			  <text x="-5" y="5" fill="#fff" style="font-size:18px" >L</text>
+		  </g>
+		  <g id="mKey" transform="translate(230,170)"> 
+			  <circle id="key2" fill="#FFAA33" cx="0" cy="0" r="14"/>
+			  <text x="-5" y="5" fill="#fff" style="font-size:18px" >M</text>
+		  </g>
+		  <g id="rKey" transform="translate(255,170)"> 
+			  <circle id="key3" fill="#FFAA33" cx="0" cy="0" r="14"/>
+			  <text x="-5" y="5" fill="#fff" style="font-size:18px" >R</text>
+		  </g>
+		  
+		  <text id="overflowTip" x="70" y="230" fill="#8F512A" style="font-family:Microsoft JhengHei;">此節點中有三個key,表示有Overflow的狀況</text>
+      </svg> <button id="solveOverflowSvg" onClick="property23.overflow()">Solve Overflow</button>
+            </pre>    
+            </h3>    
+        </div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BST_Simulation</title>
+<link rel="stylesheet" type="text/css" href="../../style/layout.css" media="screen, projection, tv " />
+<link rel="stylesheet" type="text/css" href="../../style/html.css" media="screen, projection, tv" />
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="../../instruction/generateData.js"></script>
+<script src="../../instruction/generatePrePostTree.js"></script>
+<script src="../../instruction/Animation/AnimationCircle.js"></script>
+<script src="../../instruction/Animation/AnimationLine.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#nextPreIn").hide();
+	$("#nextPostIn").hide();
+});
+</script>
+
+</head>
+
+<body>
+
+<!-- #left-column: left side -->
+<div id="left-column">
+    <div id="menu11">
+        <ul>
+        	<li><a href="#" style="color:#8F6238; font-size:17px;"><b>Animation Learning</b></a></li>
+        	<li><a href="BST_Simulation_show_all.html">Show All</a></li>
+			<li><a href="BST_Simulation_step_by_step.html">Step By Step</a></li>
+			<li><a id="current" href="BST_Simulation_Preorder+Inorder-Postorder & Inorder+Postorder-Preorder.html">Preorder/Postorder+Inorder</a></li>
+        	<li><a href="#" style="color:#8F6238; font-size:17px;"><b>TEST</b></a></li>
+            <li><a href="../Test/BST_Test_BuildATree.html">Build a Tree</a></li>
+			<li><a href="../Test/BST_Test_Traversal.html">Traversal</a></li>
+			<li><a href="../Test/BST_Test_Preorder+Inorder-Postorder &Inorder+Postorder-Preorder.html">Preorder/Postorder+Inorder</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- #wrapper: centers the content and sets the width -->
+<div id="wrapper">
+
+    <!-- #content: applies the white, dropshadow background -->
+    <div id="content">
+
+        <!-- #header: holds site title and subtitle -->
+        <div id="header">
+            <h1><span class="big darkBrown">B</span>INARY <span class="big darkBrown">S</span>EARCH<span class="big darkBrown">T</span>REE</h1>
+            <h2><span class="highlight">Animation Learning_Preorder(Postorder)+Inorder->BST</span></h2>
+        </div>
+ 
+    <!-- #menu: topbar menu of the site.  Use the helper classes .two, .three, .four and .five to set
+                the widths for 2, 3, 4 and 5 item menus. -->
+        <ul id="menu" class="four">
+          <li><a href="BST_Simulation_show_all.html" class="here"><span class="big">B</span>inary&nbsp;Search&nbsp;Tree</a></li>
+          <li><a href="AVL_Simulation_Property.html"><span class="big">A</span>VL&nbsp;Tree</a></li>
+          <li><a href="RB_Simulation_Property.html"><span class="big">R</span>ed-Black&nbsp;Tree</a></li>
+          <li><a href="23_Simulation_Property.html"><span class="big">2</span>-3&nbsp;Tree</a></li>
+        </ul>
+
+        <!-- #page: holds all page content, as well as footer -->
+    	<div id="page">
+            <h3 style="font-family:Microsoft JhengHei;">請先選擇"Preorder+Inorder"或"Inorder+Postorder"的按鈕,再按下"Next"的按鈕,<br>即可一步步觀看如何透過Preorder和Inorder(Inorder和Postorder)建立binary search tree<br><br>
+            <ul class="contentUi">
+               <li>Preorder:表示觀看順序(由左至右)</li>
+               <li>Postorder:表示觀看順序(由右至左)</li>
+               <li>Inorder:表示node的位置</li>
+            </ul>
+            </h3>
+            
+            <p style="color:#F00">此處的A~Z字母和順序無關</p>
+            
+            <button id="preAndIn" onClick="genNumbers.getAlphabetNodes(),traversalTree.randomTraversal(1)">Preorder+Inorder</button>
+            <button id="postAndIn" onClick="genNumbers.getAlphabetNodes(),traversalTree.randomTraversal(2)">Inorder+Postorder</button>
+            
+            <div class="Traversal">
+                <h3 id="pre" style="font-family:Microsoft JhengHei;">Pre-order traversal: <span id="pre0"></span><span id="pre1"></span><span id="pre2"></span><span id="pre3"></span><span id="pre4"></span><span id="pre5"></span><span id="pre6"></span><span id="pre7"></span></h3>
+                <h3 id="in" style="font-family:Microsoft JhengHei;">In-order traversal: <span id="i0"></span><span id="i1"></span><span id="i2"></span><span id="i3"></span><span id="i4"></span><span id="i5"></span><span id="i6"></span><span id="i7"></span></h3>
+                <h3 id="post" style="font-family:Microsoft JhengHei;">Post-order traversal: <span id="post0"></span><span id="post1"></span><span id="post2"></span><span id="post3"></span><span id="post4"></span><span id="post5"></span><span id="post6"></span><span id="post7"></span></h3>
+            </div>
+        
+            <button id="nextPreIn" onClick="traversalTree.preInTree()">Next</button>
+            <button id="nextPostIn" onClick="traversalTree.postInTree()">Next</button>
+          
+            <svg width="800" height="400" version="1.1" id="tree" xmlns="http://www.w3.org/2000/svg"></svg>
+		</div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BST_Simulation</title>
+<link rel="stylesheet" type="text/css" href="../../style/layout.css" media="screen, projection, tv " />
+<link rel="stylesheet" type="text/css" href="../../style/html.css" media="screen, projection, tv" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="../../instruction/bstDel.js"></script>
+<script src="../../instruction/bstInsert.js"></script>
+<script src="../../instruction/searchNode.js"></script>
+<script src="../../instruction/Animation/AnimationCircle.js"></script>
+<script src="../../instruction/Animation/AnimationLine.js"></script>
+</head>
+
+<body>
+
+<!-- #left-column: left side -->
+<div id="left-column">
+    <div id="menu11">
+        <ul>
+        	<li><a href="#" style="color:#8F6238; font-size:17px;"><b>Animation Learning</b></a></li>
+        	<li><a href="BST_Simulation_show_all.html">Show All</a></li>
+			<li><a id="current" href="BST_Simulation_step_by_step.html">Step By Step</a></li>
+			<li><a href="BST_Simulation_Preorder+Inorder-Postorder & Inorder+Postorder-Preorder.html">Preorder/Postorder+Inorder</a></li>
+        	<li><a href="#" style="color:#8F6238; font-size:17px;"><b>TEST</b></a></li>
+            <li><a href="../Test/BST_Test_BuildATree.html">Build a Tree</a></li>
+			<li><a href="../Test/BST_Test_Traversal.html">Traversal</a></li>
+			<li><a href="../Test/BST_Test_Preorder+Inorder-Postorder &Inorder+Postorder-Preorder.html">Preorder/Postorder+Inorder</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- #wrapper: centers the content and sets the width -->
+<div id="wrapper">
+
+    <!-- #content: applies the white, dropshadow background -->
+    <div id="content">
+
+        <!-- #header: holds site title and subtitle -->
+        <div id="header">
+            <h1><span class="big darkBrown">B</span>INARY <span class="big darkBrown">S</span>EARCH<span class="big darkBrown">T</span>REE</h1>
+            <h2><span class="highlight">Animation Learning_Step by Step</span></h2>
+        </div>
+ 
+    <!-- #menu: topbar menu of the site.  Use the helper classes .two, .three, .four and .five to set
+                the widths for 2, 3, 4 and 5 item menus. -->
+        <ul id="menu" class="four">
+          <li><a href="BST_Simulation_show_all.html" class="here"><span class="big">B</span>inary&nbsp;Search&nbsp;Tree</a></li>
+          <li><a href="AVL_Simulation_Property.html"><span class="big">A</span>VL&nbsp;Tree</a></li>
+          <li><a href="RB_Simulation_Property.html"><span class="big">R</span>ed-Black&nbsp;Tree</a></li>
+          <li><a href="23_Simulation_Property.html"><span class="big">2</span>-3&nbsp;Tree</a></li>
+        </ul>
+        
+        <!-- #page: holds all page content, as well as footer -->
+    	<div id="page">
+            <h3 style="font-family:Microsoft JhengHei;">請輸入一個數值後,按下"Add"的按鈕,即可一步一步的建立node</h3>
+            <h4 style="color:#F9690E; font-family:Microsoft JhengHei;">注意:只能顯示5個level的Binary Search Tree(root的level為1) </h4>
+            <div class='input-box'>
+               <h3 style="font-family:Microsoft JhengHei;">Data:<input type=text id='tree-input' size=3>
+                	<button id='add-to-tree' onclick="insertNode.insert()">Insert</button>
+                    <!-- Delete(by copying)<button id='delete-to-tree' onclick="delPredesessor.deleteNode()">Delete(inorder predecessor)</button>                    <button id='delete-to-tree' onclick="delSuccessor.deleteNode()">Delete(inorder successor)</button><br> -->
+                	<button id='search-node' onclick="searchNode.searchANode(1)">Search</button>
+                </h3>  
+            </div>
+
+            <svg width="1200" height="800" version="1.1" id="tree" xmlns="http://www.w3.org/2000/svg"></svg>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

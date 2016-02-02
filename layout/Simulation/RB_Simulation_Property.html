@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RB_Simulation</title>
+<link rel="stylesheet" type="text/css" href="../../style/layout.css" media="screen, projection, tv " />
+<link rel="stylesheet" type="text/css" href="../../style/html.css" media="screen, projection, tv" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="http://malsup.github.com/jquery.blockUI.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="../../instruction/Animation/AnimationchangeColor.js"></script>
+</head>
+
+<body>
+
+<!-- #left-column: left side -->
+<div id="left-column">
+    <div id="menu11">
+        <ul>
+        	<li><a href="#" style="color:#8F6238; font-size:17px;"><b>Animation Learning</b></a></li>
+        	<li><a id="current" href="RB_Simulation_Property.html">Property</a></li>
+			<li><a href="RB_Simulation_Insert.html">Insert</a></li>
+			<li><a href="#" style="color:#8F6238; font-size:17px;"><b>TEST</b></a></li>
+            <li><a href="../Test/RB_Test_BuildATree.html">Build a Tree</a></li>
+			<li><a href="../Test/RB_Test_Traversal.html">Traversal</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<!-- #wrapper: centers the content and sets the width -->
+<div id="wrapper">
+
+  <!-- #content: applies the white, dropshadow background -->
+  <div id="content" style="width:850px">
+
+
+    <!-- #header: holds site title and subtitle -->
+    <div id="header" style="padding-left:10%;">
+        <h1><span class="big darkBrown">R</span>ED-<span class="big darkBrown">B</span>LACK <span class="big darkBrown">T</span>REE</h1>
+        <h2><span class="highlight">Animation Learning_Property</span></h2>
+    </div>
+ 
+    <!-- #menu: topbar menu of the site.  Use the helper classes .two, .three, .four and .five to set
+                the widths for 2, 3, 4 and 5 item menus. -->
+    <ul id="menu" class="four">
+      <li><a href="BST_Simulation_show_all.html"><span class="big">B</span>inary&nbsp;Search&nbsp;Tree</a></li>
+      <li><a href="AVL_Simulation_Property.html"><span class="big">A</span>VL&nbsp;Tree</a></li>
+      <li><a href="RB_Simulation_Property.html" class="here"><span class="big">R</span>ed-Black&nbsp;Tree</a></li>
+      <li><a href="23_Simulation_Property.html"><span class="big">2</span>-3&nbsp;Tree</a></li>
+    </ul>
+    
+    <!-- #page: holds all page content, as well as footer -->
+    <div id="page"> 
+        <h3 style="font-family:Microsoft JhengHei;">Red-Black Tree的特性:<br>
+        (I)Root node一定是黑色的<br>
+        (II)從Root到Leaf的每個路徑,皆有相同數目的黑色node<br>
+        (III)不可以有連續兩個Red node
+            <h3 style="color:#128516">
+            <pre style="font-family:Microsoft JhengHei;">
+    每新增一個新的node X (每一個新增的Node一律為紅色), 即檢查其parent node的顏色?
+    
+    (一)Parent node為黑色 --> End
+    
+    (二)Parent node為紅色 --> 檢查其uncle node的顏色?
+    
+                        (1)Uncle node為紅色
+                            -->  Parent node和Uncle node皆改為黑色, ancestor node再改為紅色
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="280" height="180" id="solCase1" style="background:#F5FFFA" viewBox="0 0 200 190">
+                          <g id="case11"> 
+                              <circle id="n11" fill="black" cx="100" cy="30" r="14"/>
+                              <text x="95" y="35" fill="#fff" style="font-size:18px" >A</text>
+                          </g>
+                          <g id="case12"> 
+                              <circle id="n12" fill="red" cx="60" cy="80" r="14"/>
+                              <text x="55" y="85" fill="#fff" style="font-size:18px" >U</text>
+                          </g>
+                          <g id="case13"> 
+                              <circle id="n13" fill="red" cx="140" cy="80" r="14"/>
+                              <text x="135" y="85" fill="#fff" style="font-size:18px" >P</text>
+                          </g>
+                          <line stroke="#A0522D" stroke-width="2" x1="100" y1="40" x2="60" y2="70"/>
+                          <line stroke="#A0522D" stroke-width="2" x1="100" y1="40" x2="140" y2="70"/>
+                      </svg> <button id="twoRedBtn" onClick="solveAni.twoRed()">case 1</button>
+                          
+                        (2)Uncle node為黑色或沒有uncle node
+                            --> 若新node為parent node的左(右)節點, 
+                                   檢查parent node是否也為ancestor node的左(右)節點?
+                        
+                                    (i)是(Ancestor node到其新node的路徑上沒有轉彎)
+                                            -->Single rotate完, 原Parent node改為黑色, 原ancestor node改為紅色
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="280" height="180" id="solCase2" style="background:#F5FFFA" viewBox="0 0 200 190">
+                                <g id="case21" transform="translate(100,30)"> 
+                                    <circle id="n21" fill="black" cx="0" cy="0" r="14"/>
+                                    <text x="-5" y="5" fill="#fff" style="font-size:18px" >A</text>
+                                </g>
+                                <g id="case22" transform="translate(60,80)"> 
+                                    <circle id="n22" fill="black" cx="0" cy="0" r="14"/>
+                                    <text x="-5" y="5" fill="#fff" style="font-size:18px" >U</text>
+                                </g>
+                                <g id="case23" transform="translate(140,80)"> 
+                                    <circle id="n23" fill="red" cx="0" cy="0" r="14"/>
+                                    <text x="-5" y="5" fill="#fff" style="font-size:18px" >P</text>
+                                </g>
+                                <line id="caseLine21" stroke="#A0522D" stroke-width="2" x1="100" y1="40" x2="60" y2="70"/>
+                                <line id="caseLine22" stroke="#A0522D" stroke-width="2" x1="100" y1="40" x2="140" y2="70"/>
+                            </svg> <button id="twoRedBtn" onClick="solveAni.noAngle()">case 2</button>
+                            
+                                    (ii)否(Ancestor node到其新node的路徑上有轉彎)
+                                            -->Double rotate完, 新node改為黑色, 原ancestor node改為紅色
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="280" height="180" id="solCase3" style="background:#F5FFFA" viewBox="0 0 200 190">
+                                <g id="case31" transform="translate(100,30)"> 
+                                    <circle id="n31" fill="black" cx="0" cy="0" r="14"/>
+                                    <text x="-5" y="5" fill="#fff" style="font-size:18px" >A</text>
+                                </g>
+                                <g id="case32" transform="translate(60,80)"> 
+                                    <circle id="n32" fill="black" cx="0" cy="0" r="14"/>
+                                    <text x="-5" y="5" fill="#fff" style="font-size:18px" >U</text>
+                                </g>
+                                <g id="case33" transform="translate(140,80)"> 
+                                    <circle id="n33" fill="red" cx="0" cy="0" r="14"/>
+                                    <text x="-5" y="5" fill="#fff" style="font-size:18px" >P</text>
+                                </g>
+                                <line stroke="#A0522D" stroke-width="2" x1="100" y1="40" x2="60" y2="70"/>
+                                <line stroke="#A0522D" stroke-width="2" x1="100" y1="40" x2="140" y2="70"/>
+                            </svg> <button id="twoRedBtn" onClick="solveAni.angle()">case 3</button>
+                            
+            </pre>    
+            </h3>
+        </h3>
+        </div>
+	</div>
+</div>
+</body>
+</html>

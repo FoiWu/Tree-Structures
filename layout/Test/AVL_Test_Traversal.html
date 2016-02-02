@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AVL_Test</title>
+<link rel="stylesheet" type="text/css" href="../../style/layout.css" media="screen, projection, tv " />
+<link rel="stylesheet" type="text/css" href="../../style/html.css" media="screen, projection, tv" />
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="../../instruction/generateData.js"></script>
+<script src="../../instruction/balanceTraversal.js"></script>
+<script src="../../instruction/generateTraversal.js"></script>
+<script src="../../instruction/compareTraversal.js"></script>
+
+<script>
+window.onload =function() { genNumbers.getNodes(2); allNode.buildTree(); TraPrepare.putLRchildren(1); }
+</script>
+</head>
+
+<body>
+<!-- #left-column: left side -->
+<div id="left-column">
+    <div id="menu11">
+        <ul>
+        	<li><a href="#" style="color:#8F6238; font-size:17px;"><b>Animation Learning</b></a></li>
+        	<li><a href="../Simulation/AVL_Simulation_Property.html">Property</a></li>
+			<li><a href="../Simulation/AVL_Simulation_Insert.html">Insert</a></li>
+			<li><a href="#" style="color:#8F6238; font-size:17px;"><b>TEST</b></a></li>
+            <li><a href="AVL_Test_BuildATree.html">Build a Tree</a></li>
+			<li><a id="current" href="AVL_Test_Traversal.html">Traversal</a><li>
+        </ul>
+    </div>
+</div>
+
+<!-- #wrapper: centers the content and sets the width -->
+<div id="wrapper">
+
+    <!-- #content: applies the white, dropshadow background -->
+    <div id="content">
+
+       <!-- #header: holds site title and subtitle -->
+        <div id="header" style="padding-left:25%;">
+            <h1><span class="big darkBrown">A</span>VL <span class="big darkBrown">T</span>ree</h1>
+            <h2><span class="highlight">Test_Traversal</span></h2>
+        </div>
+ 
+    <!-- #menu: topbar menu of the site.  Use the helper classes .two, .three, .four and .five to set
+                the widths for 2, 3, 4 and 5 item menus. -->
+        <ul id="menu" class="four">
+          <li><a href="../Simulation/BST_Simulation_show_all.html"><span class="big">B</span>inary&nbsp;Search&nbsp;Tree</a></li>
+          <li><a href="../Simulation/AVL_Simulation_Property.html" class="here"><span class="big">A</span>VL&nbsp;Tree</a></li>
+          <li><a href="../Simulation/RB_Simulation_Property.html"><span class="big">R</span>ed-Black&nbsp;Tree</a></li>
+          <li><a href="../Simulation/23_Simulation_Property.html"><span class="big">2</span>-3&nbsp;Tree</a></li>
+        </ul>
+
+        <!-- #page: holds all page content, as well as footer -->
+    	<div id="page">
+    	<h3 style="font-family:Microsoft JhengHei;">請根據以下的"Input Data"輸入(I)pre-order(II)in-order(III)post-order(IV)breadth first traversal,最後按下"submit"的按鈕偵測答案對錯</h3>
+    	<h3 style="color:#096; font-family:Microsoft JhengHei;">Input Data: <span id="rawData"></span></h3>
+        <h3 style="font-family:Microsoft JhengHei;">I. Pre-order traversal:
+        <input type=text id=pre0 size=2> &nbsp;
+        <input type=text id=pre1 size=2> &nbsp; 
+        <input type=text id=pre2 size=2> &nbsp;
+        <input type=text id=pre3 size=2> &nbsp;
+        <input type=text id=pre4 size=2> &nbsp;
+        <input type=text id=pre5 size=2> &nbsp;
+        <input type=text id=pre6 size=2> &nbsp; 
+        <span id="tORfPre">✔</span>
+        </h3>
+        <h4 class="traversalAns" style="font-family:Microsoft JhengHei;">Answer:<span id="traverseDepthPre"></span></h4>
+        <h3 style="font-family:Microsoft JhengHei;">II. In-order traversal:
+        <input type=text id=in0 size=2> &nbsp;
+        <input type=text id=in1 size=2> &nbsp;
+        <input type=text id=in2 size=2> &nbsp;
+        <input type=text id=in3 size=2> &nbsp;
+        <input type=text id=in4 size=2> &nbsp;
+        <input type=text id=in5 size=2> &nbsp;
+        <input type=text id=in6 size=2> &nbsp;
+        <span id="tORfIn">✔</span>
+        </h3>
+        <h4 class="traversalAns" style="font-family:Microsoft JhengHei;">Answer:<span id="traverseDepthIn"></span></h4>
+        <h3 style="font-family:Microsoft JhengHei;">III. Post-order traversal:
+        <input type=text id=post1 size=2> &nbsp;
+        <input type=text id=post2 size=2> &nbsp;
+        <input type=text id=post3 size=2> &nbsp;
+        <input type=text id=post4 size=2> &nbsp;
+        <input type=text id=post5 size=2> &nbsp;
+        <input type=text id=post6 size=2> &nbsp;
+        <input type=text id=post7 size=2> &nbsp;
+        <span id="tORfPost">✔</span>
+        </h3>
+        <h4 class="traversalAns" style="font-family:Microsoft JhengHei;">Answer:<span id="traverseDepthPost"></span></h4>
+        <h3 style="font-family:Microsoft JhengHei;">IV. Breadth first traversal(Level order traversal):<br>
+        <input type=text id=b0 size=2> &nbsp;
+        <input type=text id=b1 size=2> &nbsp;
+        <input type=text id=b2 size=2> &nbsp;
+        <input type=text id=b3 size=2> &nbsp;
+        <input type=text id=b4 size=2> &nbsp;
+        <input type=text id=b5 size=2> &nbsp;
+        <input type=text id=b6 size=2> &nbsp;
+        <span id="tORfBr">✔</span>
+        </h3>
+        <h4 class="traversalAns" style="font-family:Microsoft JhengHei;">Answer:<span id="traverseBreadth"></span></h4><br><br><br>
+        <button id="Submit" onclick="compare.compareAnswer()">Submit</button>
+        <h3 style="font-family:Microsoft JhengHei;">Suggest:<blockquote><span id="suggest"></span></blockquote></h3>
+ 		</div>
+    </div>
+</div>
+</body>
+</html>

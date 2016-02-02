@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>23_Test</title>
+<link rel="stylesheet" type="text/css" href="../../style/layout.css" media="screen, projection, tv " />
+<link rel="stylesheet" type="text/css" href="../../style/html.css" media="screen, projection, tv" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="../../instruction/generateDataBy23Tree.js"></script>
+<script src="../../instruction/23Tree.js"></script>
+<script src="../../instruction/generateTraversal.js"></script>
+
+<script>
+window.onload =function() { genNumbers.getNodes(2); allNode.buildTree(); }
+</script>
+
+</head>
+
+<body>
+<!-- #left-column: left side -->
+<div id="left-column">
+    <div id="menu11">
+        <ul>
+        	<li><a href="#" style="color:#8F6238; font-size:17px;"><b>Animation Learning</b></a></li>
+        	<li><a href="../Simulation/AVL_Simulation_Property.html">Property</a></li>
+			<li><a href="../Simulation/AVL_Simulation_Insert.html">Insert</a></li>
+			<li><a href="#" style="color:#8F6238; font-size:17px;"><b>TEST</b></a></li>
+            <li><a id="current" href="AVL_Test_BuildATree.html">Build a Tree</a></li>
+			<li><a href="AVL_Test_Traversal.html">Traversal</a><li>
+        </ul>
+    </div>
+</div>
+
+<!-- #wrapper: centers the content and sets the width -->
+<div id="wrapper">
+
+    <!-- #content: applies the white, dropshadow background -->
+    <div id="content" style="width:1050px">
+        
+         <!-- #header: holds site title and subtitle -->
+        <div id="header" style="padding-left:25%;">
+            <h1><span class="big darkBrown">2</span>-3 <span class="big darkBrown">T</span>REE</h1>
+            <h2><span class="highlight">Test_Traversal</span></h2>
+        </div>
+ 
+    <!-- #menu: topbar menu of the site.  Use the helper classes .two, .three, .four and .five to set
+                the widths for 2, 3, 4 and 5 item menus. -->
+        <ul id="menu" class="four">
+          <li><a href="../Simulation/BST_Simulation_show_all.html"><span class="big">B</span>inary&nbsp;Search&nbsp;Tree</a></li>
+          <li><a href="../Simulation/AVL_Simulation_Property.html"><span class="big">A</span>VL&nbsp;Tree</a></li>
+          <li><a href="../Simulation/RB_Simulation_Property.html"><span class="big">R</span>ed-Black&nbsp;Tree</a></li>
+          <li><a href="../Simulation/23_Simulation_Property.html" class="here"><span class="big">2</span>-3&nbsp;Tree</a></li>
+        </ul>
+
+        <!-- #page: holds all page content, as well as footer -->
+    	<div id="page">
+		<h4>請根據以下所給的一筆(綠色)資料建立Tree,把得到的(藍色)Node移入右側黃色圓圈中,您可觀看紅色字體以確保node是否有放好</h4>
+		<h4>步驟:<br>(I)按下"Start"按鈕後,得到第一個Node,移動到適當的位置<br>(II)按下"Next Node"按鈕後,得到下一個Node,移動到適當的位置<br>(III)最後,按下"Submit"按鈕,即可偵測是否答對</h4>
+
+		<h3 style="color:#3C6">Data: <span id="rawData" style="color:#3C6"></span></h3>
+
+		<p id="positionTip" style="color:red">查看此處可確認Node是否有放好</p>
+
+        <button id="nextNode" onclick="nextNode()">Start</button>
+        <button id="Submit" onclick="Submit()">Submit</button>
+        <button id="Again" onClick="btree.again()">Try Again</button>
+        
+        <p>Result:<blockquote><span id="result"></span></blockquote><p><br>
+        
+        <p><span id="ans">Answer:</span></p>
+        <div class="tree graph">
+    		<canvas id='my-canvas' width="650" height="480">Your browser doesnot support canvas</canvas>
+    	</div>
+	</div>
+</div>
+
+</body>
+</html>

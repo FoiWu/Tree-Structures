@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>23_Simulation</title>
+<link rel="stylesheet" type="text/css" href="../../style/layout.css" media="screen, projection, tv " />
+<link rel="stylesheet" type="text/css" href="../../style/html.css" media="screen, projection, tv" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="../../instruction/imgCorrelation/html2canvas.js"></script>
+<script type="text/javascript" src="../../instruction/imgCorrelation/html2canvas.svg.js"></script>
+<script type="text/javascript" src="../../instruction/imgCorrelation/jquery.plugin.html2canvas.js"></script>
+<script type="text/javascript" src="../../instruction/imgCorrelation/jclip.js"></script>
+<script src="../../instruction/generateDataBy23Tree.js"></script>
+<script src="../../instruction/23Insert.js"></script>
+<script src="../../instruction/generateTraversal.js"></script>
+<script src="../../instruction/searchB23Tree.js"></script>
+<script src="../../instruction/checkBtreePosition.js"></script>
+<script src="../../instruction/Animation/AnimationBTreeCircle.js"></script>
+<script src="../../instruction/Animation/AnimationLine.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".inputBox").hide();
+	$("#getStep").hide();
+	$("#ShowAll").hide();
+	$("#TraversalOrder").hide();
+	$("#Rotate").hide();
+});
+</script>
+
+</head>
+
+<!-- #left-column: left side -->
+<div id="left-column">
+    <div id="menu11">
+        <ul>
+        	<li><a href="#" style="color:#8F6238; font-size:17px;"><b>Animation Learning</b></a></li>
+        	<li><a href="23_Simulation_Property.html">Property</a></li>
+			<li><a id="current" href="23_Simulation_Insert.html">Insert</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<!-- #wrapper: centers the content and sets the width -->
+<div id="wrapper">
+
+  <!-- #content: applies the white, dropshadow background -->
+  <div id="content" style="width:1050px">
+
+    <!-- #header: holds site title and subtitle -->
+    <div id="header" style="padding-left:25%;">
+        <h1><span class="big darkBrown">2</span>-3 <span class="big darkBrown">T</span>REE</h1>
+        <h2><span class="highlight">Test_Traversal</span></h2>
+    </div>
+ 
+    <!-- #menu: topbar menu of the site.  Use the helper classes .two, .three, .four and .five to set
+                the widths for 2, 3, 4 and 5 item menus. -->
+    <ul id="menu" class="four">
+      <li><a href="BST_Simulation_show_all.html"><span class="big">B</span>inary&nbsp;Search&nbsp;Tree</a></li>
+      <li><a href="AVL_Simulation_Property.html"><span class="big">A</span>VL&nbsp;Tree</a></li>
+      <li><a href="RB_Simulation_Property.html"><span class="big">R</span>ed-Black&nbsp;Tree</a></li>
+      <li><a href="23_Simulation_Property.html" class="here"><span class="big">2</span>-3&nbsp;Tree</a></li>
+    </ul>
+    
+    <!-- #page: holds all page content, as well as footer -->
+    <div id="page">
+			<h3 style="font-family:Microsoft JhengHei;">產生2-3 Tree的圖的步驟:<br>(I)先取得一筆資料<br>(II)按下"Show 2-3 Tree"按鈕即可一步一步的產生一棵2-3 tree<br>(III)若遇到overflow的情況，請按下"Solve Overflow"按鈕<br><br><p class="generateTip">可以使用兩種方式得到一筆資料以產生一個2-3 Tree的圖:</p><p class="describeRandom">➢ 按下"Random Data"的按鈕,隨機產生一組data:<button id="GetNodes" onClick="genNumbers.getNodes(1)">Random Data</button></p><p class="describeInput">➢ 按下"Input data"的按鈕後,輸入8個數字,最後按下"Submit":<button id="InputNodes" onClick="genNumbers.inputData()" >Input data</button></p></h3>
+      
+      		<h4 style="color:#003C9D; font-family:Microsoft JhengHei;">若有需要記錄當前步驟以提供下一個步驟做參考，請按下方的"Get this step"按鈕，<br>並選取右邊"previous step"字樣（藍色方塊），即可觀賞記錄的步驟畫面。<br>強烈建議動畫結束後再按"Get this step"按鈕，以確保記錄之步驟是完整的。</h4>
+      		
+    		<div class="inputBox">
+        		<p>
+        		<input type=text id=n0 size=3> &nbsp;
+  		      	<input type=text id=n1 size=3> &nbsp;
+				<input type=text id=n2 size=3> &nbsp;
+				<input type=text id=n3 size=3> &nbsp;
+				<input type=text id=n4 size=3> &nbsp;
+				<input type=text id=n5 size=3> &nbsp;
+				<input type=text id=n6 size=3> &nbsp;
+                <input type=text id=n7 size=3> &nbsp;
+    	    	<button id="Submit" onClick="genNumbers.submitIt()">Submit</button>
+        		</p>
+        	</div>
+    
+   			<h3 style="color:#096; font-family:Microsoft JhengHei;">Data: <span id="rawData"></span>
+            <button id="ShowAll" onclick="allNode.buildTree()">Show 2-3 Tree</button></h3> 
+            
+            <nav class="figSide">
+            	<li style="font-family:Microsoft JhengHei;">previous step
+            		<div id="previous" style="border:1px solid"></div>
+                </li>
+            </nav>
+            
+   		 	<svg width="900" height="350" version="1.1" id="tree" xmlns="http://www.w3.org/2000/svg"></svg><br>
+            <button id="getStep">Get this step</button><br>
+        </div>
+	</div>
+</div>
+
+</body>
+</html>

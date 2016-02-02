@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RB_Simulation</title>
+<link rel="stylesheet" type="text/css" href="../../style/layout.css" media="screen, projection, tv " />
+<link rel="stylesheet" type="text/css" href="../../style/html.css" media="screen, projection, tv" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="http://malsup.github.com/jquery.blockUI.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="../../instruction/Animation/AnimationRotate.js"></script>
+<script src="../../instruction/Animation/AnimationCalBF.js"></script>
+
+<script>
+window.onload =function() { unbalance.LL(); unbalance.LR(); unbalance.RL(); unbalance.RR(); }
+$(document).ready(function() { 
+	//Display calculation of balance factor.
+	$('#bfCalculate').click(function() { 
+		 $(function() {
+			$( "#bfSVG" ).dialog()
+				.prev(".ui-dialog-titlebar").css("background","#87CEFA").css("margin-right","60px")
+				.find('.ui-button').css("background","#87CEFA");
+		});
+	});
+	$("#bfSVG").hide();    
+});
+</script>
+</head>
+
+<body>
+<!-- #left-column: left side -->
+<div id="left-column">
+    <div id="menu11">
+        <ul>
+        	<li><a href="#" style="color:#8F6238; font-size:17px;"><b>Animation Learning</b></a></li>
+        	<li><a id="current" href="AVL_Simulation_Property.html">Property</a></li>
+			<li><a href="AVL_Simulation_Insert.html">Insert</a></li>
+			<li><a href="#" style="color:#8F6238; font-size:17px;"><b>TEST</b></a></li>
+            <li><a href="../Test/AVL_Test_BuildATree.html">Build a Tree</a></li>
+			<li><a href="../Test/AVL_Test_Traversal.html">Traversal</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<!-- #wrapper: centers the content and sets the width -->
+<div id="wrapper">
+
+  <!-- #content: applies the white, dropshadow background -->
+  <div id="content">
+
+    <!-- #header: holds site title and subtitle -->
+    <div id="header" style="padding-left:25%;">
+        <h1><span class="big darkBrown">A</span>VL <span class="big darkBrown">T</span>ree</h1>
+        <h2><span class="highlight">Animation Learning_Property</span></h2>
+    </div>
+ 
+    <!-- #menu: topbar menu of the site.  Use the helper classes .two, .three, .four and .five to set
+                the widths for 2, 3, 4 and 5 item menus. -->
+    <ul id="menu" class="four">
+      <li><a href="BST_Simulation_show_all.html"><span class="big">B</span>inary&nbsp;Search&nbsp;Tree</a></li>
+      <li><a href="AVL_Simulation_Property.html" class="here"><span class="big">A</span>VL&nbsp;Tree</a></li>
+      <li><a href="RB_Simulation_Property.html"><span class="big">R</span>ed-Black&nbsp;Tree</a></li>
+      <li><a href="23_Simulation_Property.html"><span class="big">2</span>-3&nbsp;Tree</a></li>
+    </ul>
+    
+    <!-- #page: holds all page content, as well as footer -->
+    <div id="page">  
+    	<h3 style="font-family:Microsoft JhengHei;">AVL的特性:<br>
+           <ul class="contentUi">
+               <li>若T是非空二元樹，TL和TR為其左右子樹，HL和HR分別為TL和TR的高度，則必定|HL-HR|<=1</li>
+               <li>每個節點之Balance Factor(平衡因子)=HL-HR&nbsp;<button id="bfCalculate">BF計算方法</button></li>
+               <li>若有節點之Balance Factor(平衡因子)>=2，會產生不平衡狀況</li>
+               <li>不平衡狀況有四種，以下分別介紹其狀況及解決方法:</li>
+           </ul>
+        </h3>
+      
+        	<div class="llTeaching" style="position:relative;">
+    		<h3 style="color:#06C; font-family:Microsoft JhengHei;">(1)LL(Left subtree of Left child)<button id="llRotation" onClick="resetAni.LL()">播放LL解決方法</button></h3>
+                <div id="llFig">
+                    <canvas id="ll" width="200" height="150">Your browser does not support the HTML5 canvas tag.</canvas>
+                </div> 
+                <div id="rotationLL">
+                    <canvas id="llCanvas" width="260" height="170" style="background:#F8F8FF;">Your browser does not support the HTML5 canvas tag.</canvas>
+                </div>
+            </div><br>        
+    
+    		<div class="lrTeaching" style="position:relative;">
+    		<h3 style="color:#06C; font-family:Microsoft JhengHei;">(2)LR(Left subtree of Right child)<button id="lrRotation" onClick="resetAni.LR()">播放LR解決方法</button></h3>
+                <div id="lrFig">
+                    <canvas id="lr" width="200" height="150">Your browser does not support the HTML5 canvas tag.</canvas>
+                </div>
+                <div id="rotationLR">
+                    <canvas id="lrCanvas" width="260" height="170" style="background:#F8F8FF;">Your browser does not support the HTML5 canvas tag.</canvas>
+                </div><br>
+           </div>        
+			
+           <div class="rrTeaching" style="position:relative;">
+           <h3 style="color:#06C; font-family:Microsoft JhengHei;">(3)RR(Right subtree of Right child)<button id="rrRotation" onClick="resetAni.RR()">播放RR解決方法</button></h3>
+                <div id="rrFig">
+                    <canvas id="rr" width="200" height="150">Your browser does not support the HTML5 canvas tag.</canvas>
+                </div>
+                <div id="rotationRR">
+                    <canvas id="rrCanvas" width="260" height="170" style="background:#F8F8FF;">Your browser does not support the HTML5 canvas tag.</canvas>
+                </div><br> 
+            </div>      
+	
+    		<div class="rlTeaching" style="position:relative;">
+    		<h3 style="color:#06C; font-family:Microsoft JhengHei;">(4)RL(Right subtree of Left child)<button id="rlRotation" onClick="resetAni.RL()">播放RL解決方法</button></h3>
+                <div id="rlFig">
+                    <canvas id="rl" width="200" height="150">Your browser does not support the HTML5 canvas tag.</canvas>
+                </div>
+                <div id="rotationRL">
+                    <canvas id="rlCanvas" width="260" height="170" style="background:#F8F8FF;">Your browser does not support the HTML5 canvas tag.</canvas>
+                </div>
+            </div>     
+       </div>
+       <div id="bfSVG" title="(You can drag me by here!!!) ">
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="470" height="460" id="bfTree" style="background:#F1FFE3">
+                <circle id="bfCal1" fill="#4169E1" stroke="#00008B" stroke-width="2" cx="240" cy="80" r="16"/>
+                <circle id="bfCal2" fill="#4169E1" stroke="#00008B" stroke-width="2" cx="120" cy="150" r="16"/>
+                <circle id="bfCal3" fill="#4169E1" stroke="#00008B" stroke-width="2" cx="360" cy="150" r="16"/>
+				<circle id="bfCal4" fill="#4169E1" stroke="#00008B" stroke-width="2" cx="60" cy="220" r="16"/>
+                <circle id="bfCal5" fill="#4169E1" stroke="#00008B" stroke-width="2" cx="270" cy="290" r="16"/>
+                <circle fill="#000000" stroke="#000000" stroke-width="2" cx="420" cy="220" r="16"/>
+				<circle fill="#000000" stroke="#000000" stroke-width="2" cx="300" cy="220" r="16"/>
+                <circle fill="#000000" stroke="#000000" stroke-width="2" cx="285" cy="360" r="16"/>
+				<line stroke="#00008B" stroke-width="2" x1="240" y1="95" x2="120" y2="135"/>
+                <line stroke="#00008B" stroke-width="2" x1="120" y1="165" x2="60" y2="205"/>
+                <line stroke="#00008B" stroke-width="2" x1="360" y1="165" x2="300" y2="205"/>
+				<line stroke="#00008B" stroke-width="2" x1="360" y1="165" x2="420" y2="205"/>
+                <line stroke="#00008B" stroke-width="2" x1="240" y1="95" x2="360" y2="135"/>
+				<line stroke="#00008B" stroke-width="2" x1="300" y1="235" x2="270" y2="275"/>
+                <line stroke="#00008B" stroke-width="2" x1="270" y1="305" x2="285" y2="345"/>
+                <text x="235" y="60" fill="#9900FF" style="font-size:18px" >-2</text>
+                <text x="115" y="130" fill="#9900FF" style="font-size:18px" >1</text>
+                <text x="55" y="200" fill="#9900FF" style="font-size:18px" >0</text>
+				<text x="355" y="130" fill="#9900FF" style="font-size:18px" >2</text>
+                <text x="295" y="200" fill="#9900FF" style="font-size:18px" >2</text>
+                <text x="415" y="200" fill="#9900FF" style="font-size:18px" >0</text>
+				<text x="260" y="270" fill="#9900FF" style="font-size:18px" >-1</text>
+                <text x="285" y="340" fill="#9900FF" style="font-size:18px" >0</text>
+                <text x="30" y="30" stroke="#0200BE" style="font-size:20px" >請點選藍色的節點以觀看其BF的記算方法</text>
+            </svg>
+        </div> 
+	</div>
+</div>
+
+</body>
+</html>
